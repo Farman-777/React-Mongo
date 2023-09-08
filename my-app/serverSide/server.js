@@ -13,7 +13,7 @@ async function main() {
   console.log("db-connected")
 }//step 3 end
 
-const userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({ //defining schema
     username: String,
     password:String
   });
@@ -27,8 +27,8 @@ server.use(bodyParser.json())
 
 
 server.post("/addData",async (req,res)=> {
-    let user = new User();
-    user.username = req.body.username;
+    let user = new User(); 
+    user.username = req.body.username; //assign value from frontend to backend
     user.password = req.body.password;
     const doc = await user.save();
     console.log(doc)
